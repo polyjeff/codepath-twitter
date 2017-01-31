@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TweetListViewController.h"
+#import "LoginViewController.h"
+#import "TwitterClient.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    TweetListViewController *viewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    TweetListViewController *tweetListController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    LoginViewController *loginController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
     
     CGRect frame = [UIScreen mainScreen].bounds;
     self.window = [[UIWindow alloc] initWithFrame:frame];
     
-    self.window.rootViewController = viewController;
+    // self.window.rootViewController = tweetListController;
+    self.window.rootViewController = loginController;
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -58,4 +62,27 @@
 }
 
 
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options    {
+    
+    [[TwitterClient sharedInstance] fetchAccessTokenWithPath:@"oauth/access_token" method:@"POST" requestToken:[BDBOAuth1Credential credentialWithQueryString:url.query] success:^(BDBOAuth1Credential *accessToken) {
+        NSLog(@"Got access token!");
+        [[TwitterClient sharedInstance].requestSerializer accessToken];
+        
+        [[TwitterClient sharedInstance] GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            NSLog(@"current user: %@", responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"error getting user");
+        }];
+        
+        [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            NSLog(@"tweets: %@", responseObject);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"error getting user");
+        }];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"Failed to get access token");
+    }];
+    return YES;
+}
 @end
