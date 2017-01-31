@@ -74,7 +74,7 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
                 NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
             }
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"error getting user");
+            NSLog(@"error getting tweets");
         }];
         */
     } failure:^(NSError *error) {

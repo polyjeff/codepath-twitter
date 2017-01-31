@@ -7,6 +7,7 @@
 //
 
 #import "TweetTableViewCell.h"
+#import "Tweet.h"
 
 @interface TweetTableViewCell ()
 
@@ -28,16 +29,21 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.nameLabel.text = @"My Twitter Name";
-    self.handleLabel.text = @"@Placeholder";
+    // self.nameLabel.text = @"My Twitter Name";
+    // self.handleLabel.text = @"@Placeholder";
     self.timestampLabel.text = @"4h";
-    self.contentLabel.text = @"Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!";
+    // self.contentLabel.text = @"Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+
+-(void) setTweet:(Tweet *)tweet {
+    self.contentLabel.text = tweet.text;
 }
 
 @end

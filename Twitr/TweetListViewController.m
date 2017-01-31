@@ -8,10 +8,14 @@
 
 #import "TweetListViewController.h"
 #import "TweetTableViewCell.h"
+#import "TwitterClient.h"
+#import "User.h"
+#import "Tweet.h"
 
 @interface TweetListViewController () <UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSArray<Tweet *> *tweets;
 
 @end
 
@@ -26,6 +30,25 @@
     
     UINib *nib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TweetTableViewCell"];
+
+    [self fetchTweets];
+}
+
+- (void) fetchTweets {
+    [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json"
+                             parameters:nil
+                                success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        // NSLog(@"tweets: %@", responseObject);
+        NSArray *tweets = [Tweet tweetsWithArray:responseObject];
+        self.tweets = tweets;
+        [self.tableView reloadData];
+
+        for (Tweet *tweet in tweets) {
+            NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error getting tweets");
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -35,6 +58,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // TODO
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
+    
+    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+    
+    [cell setTweet:tweet];
+    
+    NSLog(@"GOT TWEET: %@", tweet);
     if (indexPath.row % 2)  {
         cell.retweetContainerHeightConstraint.constant = 0;
     } else {
