@@ -8,13 +8,12 @@
 
 #import "LoginViewController.h"
 #import "TwitterClient.h"
+#import "TweetListViewController.h"
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 
-@interface LoginViewController ()
-
-@end
 
 @implementation LoginViewController
+
 
 - (IBAction)onLogin:(id)sender {
     
@@ -22,6 +21,11 @@
         if (user != nil) {
             NSLog(@"Welcome, %@", user.name);
             // Modally present tweets list
+            
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tweetListViewController];
+            
+            [self presentViewController:navController animated:NO completion:nil];
+            
         } else {
             // ERROR!
         }
@@ -31,6 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    TweetListViewController *tweetListController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    self.tweetListViewController = tweetListController;
 }
 
 - (void)didReceiveMemoryWarning {

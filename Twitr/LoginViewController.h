@@ -10,4 +10,6 @@
 
 @interface LoginViewController : UIViewController
 
+@property (nonatomic, strong) UIViewController *tweetListViewController;
+
 @end
