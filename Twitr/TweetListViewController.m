@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
+@property (nonatomic, strong) UIRefreshControl *tweetListRefreshControl;
 
 @end
 
@@ -30,6 +31,11 @@
     
     UINib *nib = [UINib nibWithNibName:@"TweetTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"TweetTableViewCell"];
+
+    // Add pull-to-refresh control
+    self.tweetListRefreshControl = [[UIRefreshControl alloc]init];
+    [self.tweetListRefreshControl addTarget:self action:@selector(fetchTweets) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:self.tweetListRefreshControl];
 
     [self fetchTweets];
 }
@@ -49,6 +55,7 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error getting tweets");
     }];
+    [self.tweetListRefreshControl endRefreshing];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -64,13 +71,6 @@
     [cell setTweet:tweet];
     
     NSLog(@"GOT TWEET: %@", tweet);
-    if (indexPath.row % 2)  {
-        cell.retweetContainerHeightConstraint.constant = 0;
-    } else {
-        cell.retweetContainerHeightConstraint.constant = 24 * indexPath.row
-        ;
-    }
-
     [cell setNeedsUpdateConstraints];
     return cell;
 }

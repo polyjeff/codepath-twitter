@@ -37,6 +37,8 @@
     // Do any additional setup after loading the view from its nib.
     TweetListViewController *tweetListController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     self.tweetListViewController = tweetListController;
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

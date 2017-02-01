@@ -8,6 +8,7 @@
 
 #import "TweetTableViewCell.h"
 #import "Tweet.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
 @interface TweetTableViewCell ()
 
@@ -43,7 +44,11 @@
 
 
 -(void) setTweet:(Tweet *)tweet {
+    self.nameLabel.text = tweet.author.name;
+    self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
     self.contentLabel.text = tweet.text;
+    NSLog(@"Profile Image URL is %@", tweet.author.profileImageURL);
+    [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.author.profileImageURL]];
 }
 
 @end
