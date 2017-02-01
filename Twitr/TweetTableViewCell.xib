@@ -16,13 +16,22 @@
             <rect key="frame" x="0.0" y="0.0" width="485" height="455"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="485" height="454.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="485" height="454"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAU-eR-ffW" userLabel="TopContainer">
                         <rect key="frame" x="-0.5" y="0.0" width="485" height="24"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Retweeted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeE-TM-wCR">
+                                <rect key="frame" x="84.5" y="5.5" width="60.5" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.1530383319400237" green="0.62090600588446976" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="IeE-TM-wCR" firstAttribute="centerY" secondItem="qAU-eR-ffW" secondAttribute="centerY" id="avk-w2-jWZ"/>
                             <constraint firstAttribute="height" constant="24" id="dJt-Wn-gVW"/>
                         </constraints>
                     </view>
@@ -121,6 +130,7 @@
                     <constraint firstItem="qAU-eR-ffW" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="9W4-19-flk"/>
                     <constraint firstItem="UOl-fw-9b7" firstAttribute="top" secondItem="CCQ-Gx-IHg" secondAttribute="bottom" id="C6i-6M-u0T"/>
                     <constraint firstAttribute="trailingMargin" secondItem="UOl-fw-9b7" secondAttribute="trailing" constant="-8" id="LcU-wj-2iz"/>
+                    <constraint firstItem="IeE-TM-wCR" firstAttribute="leading" secondItem="HfG-1T-sF6" secondAttribute="leading" id="VDI-UX-iOS"/>
                     <constraint firstItem="qAU-eR-ffW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Zxy-EQ-mxU"/>
                     <constraint firstItem="qAU-eR-ffW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="bF2-bq-MkU"/>
                     <constraint firstAttribute="leadingMargin" secondItem="mgE-ya-KPk" secondAttribute="leading" constant="8" id="ddm-Cq-SeV"/>
@@ -142,7 +152,9 @@
                 <outlet property="replyButton" destination="bBP-Ke-te2" id="2uc-gM-y2b"/>
                 <outlet property="retweetButton" destination="Oqw-Os-wCS" id="n8l-hr-buL"/>
                 <outlet property="retweetContainerHeightConstraint" destination="dJt-Wn-gVW" id="yCa-t2-OSI"/>
+                <outlet property="retweetLabel" destination="IeE-TM-wCR" id="Mxo-dW-0p7"/>
                 <outlet property="timestampLabel" destination="3r7-Wk-EIg" id="iQV-C3-Esf"/>
+                <outlet property="topContainer" destination="qAU-eR-ffW" id="vsf-SO-xFm"/>
             </connections>
             <point key="canvasLocation" x="1.5" y="-22.5"/>
         </tableViewCell>

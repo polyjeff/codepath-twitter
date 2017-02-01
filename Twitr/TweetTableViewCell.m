@@ -20,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *topContainer;
 
 @end
 
@@ -29,11 +31,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    
-    // self.nameLabel.text = @"My Twitter Name";
-    // self.handleLabel.text = @"@Placeholder";
-    self.timestampLabel.text = @"4h";
-    // self.contentLabel.text = @"Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world! Hello, world!";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,7 +46,15 @@
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
         self.contentLabel.text = tweet.text;
         
-        // NSLog(@"Profile Image URL is %@", tweet.author.profileImageURL);
+        NSLog(@"retweetCount is %@, text is  %@", tweet.retweetCount, tweet.text);
+        if (tweet.retweetCount.integerValue > 1) {
+            self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ times", tweet.retweetCount];
+        } else if (tweet.retweetCount.integerValue == 1) {
+            self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ time", tweet.retweetCount];
+        } else {
+            self.retweetLabel.text = @"";
+        }
+        
         [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.author.profileImageURL]];
 
         NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];

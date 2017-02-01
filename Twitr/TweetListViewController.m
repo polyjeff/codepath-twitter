@@ -49,9 +49,9 @@
         self.tweets = tweets;
         [self.tableView reloadData];
 
-        for (Tweet *tweet in tweets) {
-            NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
-        }
+        // for (Tweet *tweet in tweets) {
+        //    NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
+        // }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error getting tweets");
     }];
@@ -59,7 +59,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.tweets.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -15,10 +15,13 @@
     if (self) {
         self.text = dictionary[@"text"];
         NSString *createdAtString = dictionary[@"created_at"];
+        
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss z y";
         self.createdAt = [formatter dateFromString:createdAtString];
+        
         self.author = [[User alloc] initWithDictionary:dictionary[@"user"]];
+        self.retweetCount = dictionary[@"retweet_count"];
     }
     return self;
 }
