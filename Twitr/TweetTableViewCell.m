@@ -44,11 +44,21 @@
 
 
 -(void) setTweet:(Tweet *)tweet {
-    self.nameLabel.text = tweet.author.name;
-    self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
-    self.contentLabel.text = tweet.text;
-    NSLog(@"Profile Image URL is %@", tweet.author.profileImageURL);
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.author.profileImageURL]];
+    if (tweet != nil) {
+        self.nameLabel.text = tweet.author.name;
+        self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
+        self.contentLabel.text = tweet.text;
+        
+        // NSLog(@"Profile Image URL is %@", tweet.author.profileImageURL);
+        [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.author.profileImageURL]];
+
+        NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
+        formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleAbbreviated;
+        formatter.allowedUnits = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+        formatter.maximumUnitCount = 1;
+        NSString *elapsed = [formatter stringFromDate:tweet.createdAt toDate:[NSDate date]];
+        self.timestampLabel.text = elapsed;
+    }
 }
 
 @end
