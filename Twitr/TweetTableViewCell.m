@@ -76,17 +76,17 @@
 
 
 - (IBAction)onReply:(id)sender {
-    NSLog(@"Inside onReply, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
+    NSLog(@"Inside onReply, self.tweetmodel.text is %@, tweet id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
 }
 
 
 - (IBAction)onRetweet:(id)sender {
-    NSLog(@"Inside onRetweet, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
+    NSLog(@"Inside onRetweet, self.tweetmodel.text is %@, URL is GET 1.1/statuses/retweet/%@.json", self.tweetmodel.text, self.tweetmodel.tweetId);
 }
 
 
 - (IBAction)onFavorite:(id)sender {
-    NSLog(@"Inside onFavorite, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
+    NSLog(@"Inside onFavorite, self.tweetmodel.text is %@, URL is POST 1.1/favorites/create.json?id=%@", self.tweetmodel.text, self.tweetmodel.tweetId);
 }
 
 @end
