@@ -49,9 +49,6 @@
         self.tweets = tweets;
         [self.tableView reloadData];
 
-        // for (Tweet *tweet in tweets) {
-        //    NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
-        // }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error getting tweets");
     }];
@@ -63,14 +60,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO
+
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
-    
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     
     [cell setTweet:tweet];
-    
-    NSLog(@"GOT TWEET: %@", tweet);
     [cell setNeedsUpdateConstraints];
     return cell;
 }

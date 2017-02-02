@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "TweetListViewController.h"
 #import "TwitterClient.h"
+#import "ProfileViewController.h"
 
 @interface NavigationManager ()
 
@@ -102,10 +103,16 @@
 
     
     
+    // Third tab bar: Profile
+    ProfileViewController *profileController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    profileController.title = @"My Profile";
+    profileController.user = [TwitterClient sharedInstance].currentUser;
+    UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:profileController];
+    
     // create tab bar view controller
     UITabBarController *tabController = [[UITabBarController alloc] init];
     // Add navigation controller to tab bar controller
-    tabController.viewControllers = @[timelineController, navController2];
+    tabController.viewControllers = @[timelineController, navController2, navController3];
     
     return tabController;
 }

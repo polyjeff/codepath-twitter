@@ -9,7 +9,10 @@
 #import <BDBOAuth1Manager/BDBOAuth1SessionManager.h>
 #import "User.h"
 
+
 @interface TwitterClient : BDBOAuth1SessionManager
+
+@property (nonatomic, strong) User *currentUser;
 
 + (TwitterClient *)sharedInstance;
 

@@ -16,7 +16,6 @@ NSString * const kTwitterCurrentUserKey = @"twitterCurrentUser";
 @interface TwitterClient ()
 
 @property (nonatomic, strong) void (^loginCompletion)(User *user, NSError *error);
-@property (nonatomic, strong) User *currentUser;
 
 @end
 
@@ -27,6 +26,15 @@ NSString * const kTwitterCurrentUserKey = @"twitterCurrentUser";
 
     if (instance == nil) {
         instance = [[TwitterClient alloc] initWithBaseURL:[NSURL URLWithString:kTwitterBaseURL] consumerKey:kTwitterConsumerKey consumerSecret:kTwitterConsumerSecret];
+        NSData *data = [[NSUserDefaults standardUserDefaults] dataForKey:kTwitterCurrentUserKey];
+        if (data) {
+            NSDictionary *currentUserDictionary = (NSDictionary*) [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            if (currentUserDictionary) {
+                instance.currentUser = [[User alloc] initWithDictionary:currentUserDictionary];
+            }
+        }
+        
+
     }
     return instance;
 }
