@@ -76,21 +76,31 @@
     UINavigationController *timelineController = [[UINavigationController alloc] initWithRootViewController:tweetListController];
     
     // Create Sign Out button
-    UIButton *signoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [signoutButton setTitle:@"Sign Out" forState:UIControlStateNormal];
-    [signoutButton sizeToFit];
-    [signoutButton addTarget:self action:@selector(onSignoutButton) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:signoutButton];
-    tweetListController.navigationItem.leftBarButtonItem = barButtonItem;
+    UIButton *tweetListSignoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [tweetListSignoutButton setTitle:@"Sign Out" forState:UIControlStateNormal];
+    [tweetListSignoutButton sizeToFit];
+    [tweetListSignoutButton addTarget:self action:@selector(onSignoutButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *tweetListBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:tweetListSignoutButton];
+    tweetListController.navigationItem.leftBarButtonItem = tweetListBarButtonItem;
 
     
     
     // Second tab bar: Mentions -- reuse the TweetListViewController but set a different initial URL
-    TweetListViewController *mentionsListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-    mentionsListViewController.title = @"Mentions";
-    mentionsListViewController.initialURL = @"1.1/statuses/mentions_timeline.json";
+    TweetListViewController *mentionListController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    mentionListController.title = @"Mentions";
+    mentionListController.initialURL = @"1.1/statuses/mentions_timeline.json";
     // create navigation controller
-    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:mentionsListViewController];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:mentionListController];
+    
+    // Create Sign Out button
+    UIButton *mentionListSignoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [mentionListSignoutButton setTitle:@"Sign Out" forState:UIControlStateNormal];
+    [mentionListSignoutButton sizeToFit];
+    [mentionListSignoutButton addTarget:self action:@selector(onSignoutButton) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *mentionListBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:mentionListSignoutButton];
+    mentionListController.navigationItem.leftBarButtonItem = mentionListBarButtonItem;
+
+    
     
     // create tab bar view controller
     UITabBarController *tabController = [[UITabBarController alloc] init];
