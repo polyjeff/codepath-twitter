@@ -110,14 +110,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBP-Ke-te2">
                                 <rect key="frame" x="0.0" y="0.0" width="139" height="40"/>
                                 <state key="normal" title="Reply"/>
+                                <connections>
+                                    <action selector="onReply:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nHq-BO-68i"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqw-Os-wCS">
                                 <rect key="frame" x="139" y="0.0" width="139" height="40"/>
                                 <state key="normal" title="Retweet"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="a6t-iF-3kL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eI-1K-aCk">
                                 <rect key="frame" x="278" y="0.0" width="139" height="40"/>
                                 <state key="normal" title="Favorite"/>
+                                <connections>
+                                    <action selector="onFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JOe-pn-wPi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

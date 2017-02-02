@@ -266,11 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitr/TweetTableViewCell.m"
-            timestampString = "507664419.840694"
+            timestampString = "507687248.072089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-setTweet:"
             landmarkType = "7">
          </BreakpointContent>

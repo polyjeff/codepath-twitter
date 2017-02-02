@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) User *author;
 @property (nonatomic, strong) NSNumber *retweetCount;
+@property (nonatomic, strong) NSString *tweetId;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

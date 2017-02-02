@@ -22,6 +22,7 @@
         
         self.author = [[User alloc] initWithDictionary:dictionary[@"user"]];
         self.retweetCount = dictionary[@"retweet_count"];
+        self.tweetId = dictionary[@"id_str"];
     }
     return self;
 }

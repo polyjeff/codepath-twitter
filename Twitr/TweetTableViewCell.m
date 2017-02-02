@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *handleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 
+@property (nonatomic, weak) Tweet *tweetmodel;
+
 @property (weak, nonatomic) IBOutlet UIView *topContainer;
 
 @end
@@ -42,11 +44,17 @@
 
 -(void) setTweet:(Tweet *)tweet {
     if (tweet != nil) {
+        // Store model away for future reference
+        self.tweetmodel = tweet;
+        
+        // Set cell values
+        
         self.nameLabel.text = tweet.author.name;
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
-        self.contentLabel.text = tweet.text;
+        // self.contentLabel.text = tweet.text;
+        self.contentLabel.text = [NSString stringWithFormat:@"%@ (%@)", tweet.text, tweet.tweetId];
         
-        NSLog(@"retweetCount is %@, text is  %@", tweet.retweetCount, tweet.text);
+        // NSLog(@"retweetCount is %@, text is  %@", tweet.retweetCount, tweet.text);
         if (tweet.retweetCount.integerValue > 1) {
             self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ times", tweet.retweetCount];
         } else if (tweet.retweetCount.integerValue == 1) {
@@ -64,6 +72,21 @@
         NSString *elapsed = [formatter stringFromDate:tweet.createdAt toDate:[NSDate date]];
         self.timestampLabel.text = elapsed;
     }
+}
+
+
+- (IBAction)onReply:(id)sender {
+    NSLog(@"Inside onReply, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
+}
+
+
+- (IBAction)onRetweet:(id)sender {
+    NSLog(@"Inside onRetweet, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
+}
+
+
+- (IBAction)onFavorite:(id)sender {
+    NSLog(@"Inside onFavorite, self.tweetmodel.text is %@, id is %@", self.tweetmodel.text, self.tweetmodel.tweetId);
 }
 
 @end
