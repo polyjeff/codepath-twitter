@@ -21,6 +21,7 @@
 		888A9FED1E3FFD8500D96358 /* TwitterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 888A9FEC1E3FFD8500D96358 /* TwitterClient.m */; };
 		888A9FF11E400FBF00D96358 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 888A9FF01E400FBF00D96358 /* User.m */; };
 		888A9FF41E400FC700D96358 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 888A9FF31E400FC700D96358 /* Tweet.m */; };
+		888AA01A1E439B3E00D96358 /* NavigationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 888AA0191E439B3E00D96358 /* NavigationManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		888A9FF01E400FBF00D96358 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		888A9FF21E400FC700D96358 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		888A9FF31E400FC700D96358 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		888AA0181E439B3E00D96358 /* NavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationManager.h; sourceTree = "<group>"; };
+		888AA0191E439B3E00D96358 /* NavigationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationManager.m; sourceTree = "<group>"; };
 		9FF99079B47D7D38FD3C6136 /* libPods-Twitr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4152C0A7B423BCBE4002D3D /* Pods-Twitr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitr/Pods-Twitr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +99,8 @@
 				888A9FEE1E400FAA00D96358 /* Models */,
 				888A9FC81E3FB91C00D96358 /* AppDelegate.h */,
 				888A9FC91E3FB91C00D96358 /* AppDelegate.m */,
+				888AA0181E439B3E00D96358 /* NavigationManager.h */,
+				888AA0191E439B3E00D96358 /* NavigationManager.m */,
 				888A9FD11E3FB91C00D96358 /* Assets.xcassets */,
 				888A9FD31E3FB91C00D96358 /* LaunchScreen.storyboard */,
 				888A9FD61E3FB91C00D96358 /* Info.plist */,
@@ -273,6 +278,7 @@
 				888A9FC71E3FB91C00D96358 /* main.m in Sources */,
 				888A9FE41E3FC82B00D96358 /* TweetTableViewCell.m in Sources */,
 				888A9FED1E3FFD8500D96358 /* TwitterClient.m in Sources */,
+				888AA01A1E439B3E00D96358 /* NavigationManager.m in Sources */,
 				888A9FE91E3FF2BA00D96358 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

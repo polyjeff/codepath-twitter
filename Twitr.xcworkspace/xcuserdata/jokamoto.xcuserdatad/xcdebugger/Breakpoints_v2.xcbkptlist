@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Twitr/LoginViewController.m"
-            timestampString = "507595553.496863"
+            timestampString = "507748131.760526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "-onLogin:"
             landmarkType = "7">
          </BreakpointContent>
