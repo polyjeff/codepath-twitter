@@ -10,10 +10,15 @@
 
 @interface User : NSObject
 
+@property (nonatomic, strong) NSDictionary *dictionary;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *profileImageURL;
 @property (nonatomic, strong) NSString *tagline;
+@property (nonatomic, strong) NSString *userId;
+@property (nonatomic, strong) NSNumber *numFollowers;
+@property (nonatomic, strong) NSNumber *numFollowing;
+@property (nonatomic, strong) NSNumber *numTweets;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

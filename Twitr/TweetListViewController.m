@@ -41,7 +41,7 @@
 }
 
 - (void) fetchTweets {
-    [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json"
+    [[TwitterClient sharedInstance] GET:self.initialURL
                              parameters:nil
                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         // NSLog(@"tweets: %@", responseObject);

@@ -20,7 +20,9 @@
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome, %@", user.name);
-            // Modally present tweets list
+            NSLog(@"User object: %@", user);
+            
+            // [TwitterClient sharedInstance].myself = user;
             
             [[NavigationManager shared] logIn];
             

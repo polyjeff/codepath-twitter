@@ -10,4 +10,6 @@
 
 @interface TweetListViewController : UIViewController
 
+@property (strong, nonatomic) NSString *initialURL;
+
 @end

@@ -66,6 +66,7 @@
     // First tab bar: Timeline
     TweetListViewController *tweetListController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
     tweetListController.title = @"Timeline";
+    tweetListController.initialURL = @"1.1/statuses/home_timeline.json";
     
     // create tab item
     // UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"Logged In" image:nil tag:0];
@@ -84,11 +85,12 @@
 
     
     
-    // Second tab bar: The Larch (Timeline again!)
-    TweetListViewController *vc2 = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
-    vc2.title = @"Larch";
+    // Second tab bar: Mentions -- reuse the TweetListViewController but set a different initial URL
+    TweetListViewController *mentionsListViewController = [[TweetListViewController alloc] initWithNibName:@"TweetListViewController" bundle:nil];
+    mentionsListViewController.title = @"Mentions";
+    mentionsListViewController.initialURL = @"1.1/statuses/mentions_timeline.json";
     // create navigation controller
-    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:vc2];
+    UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:mentionsListViewController];
     
     // create tab bar view controller
     UITabBarController *tabController = [[UITabBarController alloc] init];
