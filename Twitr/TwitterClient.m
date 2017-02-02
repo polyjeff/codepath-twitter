@@ -11,10 +11,12 @@
 NSString * const kTwitterConsumerKey = @"HYaNZbEg0OdE3Dmi3XA5LhIvS";
 NSString * const kTwitterConsumerSecret = @"7ZmAoGvwpnr2NDV7pyTc4iWb7nfYpmQRRKRf9CThcUXvfL60cR";
 NSString * const kTwitterBaseURL = @"https://api.twitter.com";
+NSString * const kTwitterCurrentUserKey = @"twitterCurrentUser";
 
 @interface TwitterClient ()
 
 @property (nonatomic, strong) void (^loginCompletion)(User *user, NSError *error);
+@property (nonatomic, strong) User *currentUser;
 
 @end
 
@@ -58,25 +60,20 @@ NSString * const kTwitterBaseURL = @"https://api.twitter.com";
         
         [self GET:@"1.1/account/verify_credentials.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
             User *user = [[User alloc] initWithDictionary:responseObject];
+            
+            // Store dictionary in user defaults
+            if (user && user.dictionary) {
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:user.dictionary];
+                [[NSUserDefaults standardUserDefaults] setObject:data forKey:kTwitterCurrentUserKey];
+                self.currentUser = [[User alloc] initWithDictionary:user.dictionary];
+            }
+            
             NSLog(@"current user: %@", user.name);
             self.loginCompletion(user, nil);
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"error getting user");
             self.loginCompletion(nil, error);
         }];
-        
-        /*
-        [[TwitterClient sharedInstance] GET:@"1.1/statuses/home_timeline.json" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-            // NSLog(@"tweets: %@", responseObject);
-            NSArray *tweets = [Tweet tweetsWithArray:responseObject];
-            
-            for (Tweet *tweet in tweets) {
-                NSLog(@"text: %@, created = %@", tweet.text, tweet.createdAt);
-            }
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            NSLog(@"error getting tweets");
-        }];
-        */
     } failure:^(NSError *error) {
         NSLog(@"Failed to get access token");
         self.loginCompletion(nil, error);

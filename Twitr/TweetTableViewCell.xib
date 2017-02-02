@@ -29,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.1530383319400237" green="0.62090600588446976" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.77977230751396986" green="0.86604597749153589" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="IeE-TM-wCR" firstAttribute="centerY" secondItem="qAU-eR-ffW" secondAttribute="centerY" id="avk-w2-jWZ"/>
                             <constraint firstAttribute="height" constant="24" id="dJt-Wn-gVW"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.075510078815098081" green="1" blue="0.13358502451661602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.74720119817305286" green="1" blue="0.75994658656452607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="kFt-LE-dcM" firstAttribute="centerX" secondItem="mgE-ya-KPk" secondAttribute="centerX" id="CLq-a9-FSe"/>
                             <constraint firstAttribute="width" constant="68" id="pRl-rS-wt4"/>
@@ -88,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.94908428196225481" green="1" blue="0.15342747203998541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.99813856252497113" blue="0.78827936236670526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HfG-1T-sF6" firstAttribute="top" secondItem="CCQ-Gx-IHg" secondAttribute="top" constant="8" id="BgH-Wr-Rcr"/>
                             <constraint firstItem="HfG-1T-sF6" firstAttribute="leading" secondItem="CCQ-Gx-IHg" secondAttribute="leading" constant="16" id="Cji-4k-YBz"/>

@@ -29,17 +29,6 @@
     [self.window makeKeyAndVisible];
     
     return YES;
-/*
-    LoginViewController *loginController = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    
-    CGRect frame = [UIScreen mainScreen].bounds;
-    self.window = [[UIWindow alloc] initWithFrame:frame];
-    
-    self.window.rootViewController = loginController;
-    [self.window makeKeyAndVisible];
-    
-    return YES;
-*/
 }
 
 

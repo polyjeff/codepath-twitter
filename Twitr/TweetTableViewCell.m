@@ -48,13 +48,10 @@
         self.tweetmodel = tweet;
         
         // Set cell values
-        
         self.nameLabel.text = tweet.author.name;
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
-        // self.contentLabel.text = tweet.text;
-        self.contentLabel.text = [NSString stringWithFormat:@"%@ (%@)", tweet.text, tweet.tweetId];
+        self.contentLabel.text = [NSString stringWithFormat:@"%@ (tweet id = %@, user id = %@)", tweet.text, tweet.tweetId, tweet.author.userId];
         
-        // NSLog(@"retweetCount is %@, text is  %@", tweet.retweetCount, tweet.text);
         if (tweet.retweetCount.integerValue > 1) {
             self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ times", tweet.retweetCount];
         } else if (tweet.retweetCount.integerValue == 1) {
