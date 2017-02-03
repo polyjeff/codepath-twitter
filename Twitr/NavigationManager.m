@@ -73,9 +73,11 @@
     // UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"Logged In" image:nil tag:0];
     // tweetListController.tabBarItem = item;
     
+    
     // create navigation controller
     UINavigationController *timelineController = [[UINavigationController alloc] initWithRootViewController:tweetListController];
-    
+    timelineController.tabBarItem.image = [UIImage imageNamed:@"Magical Scroll-30.png"];
+
     // Create Sign Out button
     UIButton *tweetListSignoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [tweetListSignoutButton setTitle:@"Sign Out" forState:UIControlStateNormal];
@@ -92,6 +94,8 @@
     mentionListController.initialURL = @"1.1/statuses/mentions_timeline.json";
     // create navigation controller
     UINavigationController *navController2 = [[UINavigationController alloc] initWithRootViewController:mentionListController];
+    navController2.tabBarItem.image = [UIImage imageNamed:@"Megaphone-30.png"];
+
     
     // Create Sign Out button
     UIButton *mentionListSignoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -108,7 +112,8 @@
     profileController.title = @"My Profile";
     profileController.user = [TwitterClient sharedInstance].currentUser;
     UINavigationController *navController3 = [[UINavigationController alloc] initWithRootViewController:profileController];
-    
+    navController3.tabBarItem.image = [UIImage imageNamed:@"Cylon Head New-30.png"];
+
     // create tab bar view controller
     UITabBarController *tabController = [[UITabBarController alloc] init];
     // Add navigation controller to tab bar controller
