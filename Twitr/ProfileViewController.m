@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *numFollowersLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowingLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *profileBackgroundImageView;
 
 @end
 
@@ -25,17 +26,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.nameLabel.text = self.user.name;
-    self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
-    self.numTweetsLabel.text = [NSString stringWithFormat:@"Number of tweets: %@", self.user.numTweets];
-    self.numFollowersLabel.text = [NSString stringWithFormat:@"Number of followers: %@", self.user.numFollowers];
-    self.numFollowingLabel.text = [NSString stringWithFormat:@"Number following: %@", self.user.numFollowing];
-    [self.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profileImageURL]];
-
-    NSLog(@"On profile page, user object is %@", self.user);
-    NSLog(@"On profile page, user name is %@", self.user.name);
+    [self reloadData];
 }
+
+- (void)reloadData {
+    if (self.user != nil) {
+        self.nameLabel.text = self.user.name;
+        self.handleLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
+        self.numTweetsLabel.text = [NSString stringWithFormat:@"Number of tweets: %@", self.user.numTweets];
+        self.numFollowersLabel.text = [NSString stringWithFormat:@"Number of followers: %@", self.user.numFollowers];
+        self.numFollowingLabel.text = [NSString stringWithFormat:@"Number following: %@", self.user.numFollowing];
+        [self.profileImageView setImageWithURL:[NSURL URLWithString:self.user.profileImageURL]];
+        [self.profileBackgroundImageView setImageWithURL:[NSURL URLWithString:self.user.profileBackgroundImageURL]];
+        
+        // NSLog(@"On profile page, user name is %@", self.user.name);
+        // NSLog(@"On profile page, user background image url is %@", self.user.profileBackgroundImageURL);
+    }
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

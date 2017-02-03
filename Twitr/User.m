@@ -23,6 +23,7 @@
         self.numFollowers = dictionary[@"followers_count"];
         self.numFollowing = dictionary[@"friends_count"];
         self.numTweets = dictionary[@"statuses_count"];
+        self.profileBackgroundImageURL = dictionary[@"profile_background_image_url"];
     }
     return self;
 }

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSNumber *numFollowers;
 @property (nonatomic, strong) NSNumber *numFollowing;
 @property (nonatomic, strong) NSNumber *numTweets;
+@property (nonatomic, strong) NSString *profileBackgroundImageURL;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 
