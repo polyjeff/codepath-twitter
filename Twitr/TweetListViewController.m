@@ -13,8 +13,9 @@
 #import "Tweet.h"
 #import "SingleTweetViewController.h"
 #import "NavigationManager.h"
+#import "ProfileViewController.h"
 
-@interface TweetListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TweetListViewController () <UITableViewDataSource, UITableViewDelegate, TweetTableViewCellDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
@@ -66,7 +67,7 @@
 
     TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
-    
+    cell.delegate = self;
     [cell setTweet:tweet];
     [cell setNeedsUpdateConstraints];
     return cell;
@@ -75,14 +76,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
-
-    NSLog(@"Tweet selected has text of %@", tweet.text);
     
     SingleTweetViewController *stvc = [[SingleTweetViewController alloc] initWithNibName:@"SingleTweetViewController" bundle:nil];
     stvc.thisTweet = tweet;
     [self.navigationController pushViewController:stvc animated:YES];
-
 }
+
+
+- (void) cellImageTapped:(Tweet *)tweet {
+    NSLog(@"Inside cellImageTapped");
+    ProfileViewController *profileController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    profileController.user = tweet.author;
+    [self.navigationController pushViewController:profileController animated:YES];
+}
+
 
 
 - (void)didReceiveMemoryWarning {

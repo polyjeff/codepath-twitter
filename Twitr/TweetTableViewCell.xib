@@ -38,8 +38,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgE-ya-KPk" userLabel="ImageContainer">
                         <rect key="frame" x="0.0" y="24" width="68" height="430"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kFt-LE-dcM" userLabel="Avatar">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kFt-LE-dcM" userLabel="Avatar">
                                 <rect key="frame" x="12" y="16" width="44" height="44"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="2Yz-5F-ZxY"/>
                                     <constraint firstAttribute="height" constant="44" id="dRU-Sm-l1w"/>
@@ -47,6 +48,7 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.74720119817305286" green="1" blue="0.75994658656452607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="kFt-LE-dcM" firstAttribute="centerX" secondItem="mgE-ya-KPk" secondAttribute="centerX" id="CLq-a9-FSe"/>
                             <constraint firstAttribute="width" constant="68" id="pRl-rS-wt4"/>

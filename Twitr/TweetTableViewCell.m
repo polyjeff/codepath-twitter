@@ -30,9 +30,15 @@
 
 @implementation TweetTableViewCell
 
+- (void)profileTap:(UITapGestureRecognizer *)sender {
+    [self.delegate cellImageTapped:self.tweetmodel];
+}
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileTap:)];
+    [self.profileImageView addGestureRecognizer:tapRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

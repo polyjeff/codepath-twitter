@@ -30,8 +30,6 @@
 
 -(void) setTweet:(Tweet *)tweet {
     if (tweet != nil) {
-        // Store model away for future reference
-        
         // Set cell values
         self.nameLabel.text = tweet.author.name;
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
@@ -47,12 +45,10 @@
         */
         [self.profileImageView setImageWithURL:[NSURL URLWithString:tweet.author.profileImageURL]];
         
-        NSDateComponentsFormatter *formatter = [[NSDateComponentsFormatter alloc] init];
-        formatter.unitsStyle = NSDateComponentsFormatterUnitsStyleAbbreviated;
-        formatter.allowedUnits = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
-        formatter.maximumUnitCount = 1;
-        NSString *elapsed = [formatter stringFromDate:tweet.createdAt toDate:[NSDate date]];
-        self.timestampLabel.text = elapsed;
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"EEE MMM d HH:mm:ss z y";
+        NSString *createdAt = [formatter stringFromDate:tweet.createdAt];
+        self.timestampLabel.text = createdAt;
     }
 }
 
