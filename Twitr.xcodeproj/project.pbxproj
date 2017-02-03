@@ -27,6 +27,8 @@
 		888AA0231E43FFB800D96358 /* Cylon Head New-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 888AA0201E43FFB800D96358 /* Cylon Head New-30.png */; };
 		888AA0241E43FFB800D96358 /* Megaphone-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 888AA0211E43FFB800D96358 /* Megaphone-30.png */; };
 		888AA0271E44012C00D96358 /* Magical Scroll-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 888AA0261E44012C00D96358 /* Magical Scroll-30.png */; };
+		888AA02B1E452D7B00D96358 /* SingleTweetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 888AA0291E452D7B00D96358 /* SingleTweetViewController.m */; };
+		888AA02C1E452D7B00D96358 /* SingleTweetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 888AA02A1E452D7B00D96358 /* SingleTweetViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,9 @@
 		888AA0201E43FFB800D96358 /* Cylon Head New-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cylon Head New-30.png"; sourceTree = "<group>"; };
 		888AA0211E43FFB800D96358 /* Megaphone-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Megaphone-30.png"; sourceTree = "<group>"; };
 		888AA0261E44012C00D96358 /* Magical Scroll-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Magical Scroll-30.png"; sourceTree = "<group>"; };
+		888AA0281E452D7B00D96358 /* SingleTweetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleTweetViewController.h; sourceTree = "<group>"; };
+		888AA0291E452D7B00D96358 /* SingleTweetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleTweetViewController.m; sourceTree = "<group>"; };
+		888AA02A1E452D7B00D96358 /* SingleTweetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleTweetViewController.xib; sourceTree = "<group>"; };
 		9FF99079B47D7D38FD3C6136 /* libPods-Twitr.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitr.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4152C0A7B423BCBE4002D3D /* Pods-Twitr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitr/Pods-Twitr.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +130,9 @@
 				888A9FE11E3FC82B00D96358 /* TweetTableViewCell.h */,
 				888A9FE21E3FC82B00D96358 /* TweetTableViewCell.m */,
 				888A9FE31E3FC82B00D96358 /* TweetTableViewCell.xib */,
+				888AA0281E452D7B00D96358 /* SingleTweetViewController.h */,
+				888AA0291E452D7B00D96358 /* SingleTweetViewController.m */,
+				888AA02A1E452D7B00D96358 /* SingleTweetViewController.xib */,
 				888A9FE61E3FF2BA00D96358 /* LoginViewController.h */,
 				888A9FE71E3FF2BA00D96358 /* LoginViewController.m */,
 				888A9FE81E3FF2BA00D96358 /* LoginViewController.xib */,
@@ -231,6 +239,7 @@
 				888A9FEA1E3FF2BA00D96358 /* LoginViewController.xib in Resources */,
 				888A9FD51E3FB91C00D96358 /* LaunchScreen.storyboard in Resources */,
 				888A9FD21E3FB91C00D96358 /* Assets.xcassets in Resources */,
+				888AA02C1E452D7B00D96358 /* SingleTweetViewController.xib in Resources */,
 				888A9FE01E3FB9D500D96358 /* TweetListViewController.xib in Resources */,
 				888A9FE51E3FC82B00D96358 /* TweetTableViewCell.xib in Resources */,
 				888AA0241E43FFB800D96358 /* Megaphone-30.png in Resources */,
@@ -292,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				888AA02B1E452D7B00D96358 /* SingleTweetViewController.m in Sources */,
 				888A9FDF1E3FB9D500D96358 /* TweetListViewController.m in Sources */,
 				888A9FF11E400FBF00D96358 /* User.m in Sources */,
 				888A9FCA1E3FB91C00D96358 /* AppDelegate.m in Sources */,

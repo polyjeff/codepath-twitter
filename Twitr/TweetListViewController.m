@@ -11,8 +11,10 @@
 #import "TwitterClient.h"
 #import "User.h"
 #import "Tweet.h"
+#import "SingleTweetViewController.h"
+#import "NavigationManager.h"
 
-@interface TweetListViewController () <UITableViewDataSource>
+@interface TweetListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
@@ -26,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
@@ -68,6 +71,19 @@
     [cell setNeedsUpdateConstraints];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // TweetTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetTableViewCell" forIndexPath:indexPath];
+    Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
+
+    NSLog(@"Tweet selected has text of %@", tweet.text);
+    
+    SingleTweetViewController *stvc = [[SingleTweetViewController alloc] initWithNibName:@"SingleTweetViewController" bundle:nil];
+    stvc.thisTweet = tweet;
+    [self.navigationController pushViewController:stvc animated:YES];
+
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
