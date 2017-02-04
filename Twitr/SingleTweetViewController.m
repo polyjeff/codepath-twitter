@@ -25,7 +25,6 @@
 @implementation SingleTweetViewController
 
 - (void)profileTap:(UITapGestureRecognizer *)sender {
-    NSLog(@"Inside profileTap of SingleTweetViewContoller, about to delegate");
     [self.delegate singleTweetImageTapped:self.tweetmodel];
 }
 

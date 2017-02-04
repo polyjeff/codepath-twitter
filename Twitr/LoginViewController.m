@@ -19,16 +19,10 @@
     
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
-            NSLog(@"Welcome, %@", user.name);
-            NSLog(@"User object: %@", user);
-            
-            // [TwitterClient sharedInstance].myself = user;
+            // NSLog(@"Welcome, %@", user.name);
+            // NSLog(@"User object: %@", user);
             
             [[NavigationManager shared] logIn];
-            
-            // UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:self.tweetListViewController];
-            
-            // [self presentViewController:navController animated:NO completion:nil];
             
         } else {
             // ERROR!
