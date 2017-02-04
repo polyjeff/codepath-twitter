@@ -9,7 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
 
+@protocol SingleTweetViewDelegate <NSObject>
+
+- (void) singleTweetImageTapped:(Tweet *)tweet;
+
+@end
+
 @interface SingleTweetViewController : UIViewController
+
+@property (weak, nonatomic) id<SingleTweetViewDelegate> delegate;
 
 @property (nonatomic, strong) Tweet *thisTweet;
 

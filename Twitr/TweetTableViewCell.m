@@ -56,7 +56,8 @@
         // Set cell values
         self.nameLabel.text = tweet.author.name;
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
-        self.contentLabel.text = [NSString stringWithFormat:@"%@ (tweet id = %@, user id = %@)", tweet.text, tweet.tweetId, tweet.author.userId];
+        self.contentLabel.text = tweet.text;
+        // self.contentLabel.text = [NSString stringWithFormat:@"%@ (tweet id = %@, user id = %@)", tweet.text, tweet.tweetId, tweet.author.userId];
         
         if (tweet.retweetCount.integerValue > 1) {
             self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ times", tweet.retweetCount];

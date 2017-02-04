@@ -15,7 +15,7 @@
 #import "NavigationManager.h"
 #import "ProfileViewController.h"
 
-@interface TweetListViewController () <UITableViewDataSource, UITableViewDelegate, TweetTableViewCellDelegate>
+@interface TweetListViewController () <UITableViewDataSource, UITableViewDelegate, TweetTableViewCellDelegate, SingleTweetViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
@@ -78,18 +78,24 @@
     Tweet *tweet = [self.tweets objectAtIndex:indexPath.row];
     
     SingleTweetViewController *stvc = [[SingleTweetViewController alloc] initWithNibName:@"SingleTweetViewController" bundle:nil];
+    stvc.delegate = self;
     stvc.thisTweet = tweet;
     [self.navigationController pushViewController:stvc animated:YES];
 }
 
 
 - (void) cellImageTapped:(Tweet *)tweet {
-    NSLog(@"Inside cellImageTapped");
     ProfileViewController *profileController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
     profileController.user = tweet.author;
     [self.navigationController pushViewController:profileController animated:YES];
 }
 
+
+- (void) singleTweetImageTapped:(Tweet *)tweet {
+    ProfileViewController *profileController = [[ProfileViewController alloc] initWithNibName:@"ProfileViewController" bundle:nil];
+    profileController.user = tweet.author;
+    [self.navigationController pushViewController:profileController animated:YES];
+}
 
 
 - (void)didReceiveMemoryWarning {

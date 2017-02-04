@@ -8,7 +8,7 @@
 
 #import "SingleTweetViewController.h"
 #import <UIImageView+AFNetworking.h>
-
+#import "Tweet.h"
 
 @interface SingleTweetViewController ()
 
@@ -18,22 +18,35 @@
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timestampLabel;
 
+@property (weak, nonatomic) Tweet *tweetmodel;
+
 @end
 
 @implementation SingleTweetViewController
+
+- (void)profileTap:(UITapGestureRecognizer *)sender {
+    NSLog(@"Inside profileTap of SingleTweetViewContoller, about to delegate");
+    [self.delegate singleTweetImageTapped:self.tweetmodel];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setTweet:self.thisTweet];
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(profileTap:)];
+    [self.profileImageView addGestureRecognizer:tapRecognizer];
 }
 
 -(void) setTweet:(Tweet *)tweet {
     if (tweet != nil) {
+        // Store model away for future reference
+        self.tweetmodel = tweet;
+
         // Set cell values
         self.nameLabel.text = tweet.author.name;
         self.handleLabel.text = [NSString stringWithFormat:@"@%@", tweet.author.screenName];
-        self.contentLabel.text = [NSString stringWithFormat:@"%@ (tweet id = %@, user id = %@)", tweet.text, tweet.tweetId, tweet.author.userId];
+        self.contentLabel.text = tweet.text;
+        // self.contentLabel.text = [NSString stringWithFormat:@"%@ (tweet id = %@, user id = %@)", tweet.text, tweet.tweetId, tweet.author.userId];
         /*
         if (tweet.retweetCount.integerValue > 1) {
             self.retweetLabel.text = [NSString stringWithFormat:@"Retweeted %@ times", tweet.retweetCount];
